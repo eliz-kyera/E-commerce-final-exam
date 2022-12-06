@@ -13,7 +13,7 @@
     <div class="form sign-in">
     <h2>Sign Up</h2>
         <label>
-          <span>Name</span>
+          <span> Full Name</span>
           <input type="text" name="fullname" required>
         </label>
         <label>

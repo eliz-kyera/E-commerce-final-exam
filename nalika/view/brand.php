@@ -1,5 +1,6 @@
 <?php
 require("../controllers/product_controller.php");
+session_start()
 ?>
 
 <!doctype html>
@@ -18,9 +19,9 @@ require("../controllers/product_controller.php");
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     
-      <style>th, td {border: 2px solid black;font: 1em sans-serif;padding: 10rem;}</style>
+      <!-- <style>th, td {border: 2px solid black;font: 1em sans-serif;padding: 10rem;}</style>
     <style> form {padding:0.5rem;font: 1em sans-serif;}</style>
-    <style> input {padding: 0.5rem; font: 1em sans-serif;}</style>
+    <style> input {padding: 0.5rem; font: 1em sans-serif;}</style> -->
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     
@@ -95,13 +96,11 @@ require("../controllers/product_controller.php");
 			<div class="nalika-profile">
 				<div class="profile-dtl">
 					<a href="#"><img src="img/notification/4.jpg" alt="" /></a>
-					<h2>Lakian <span class="min-dtn">Das</span></h2>
+					<h2>Shirley <span class="min-dtn">Yankyera</span></h2>
 				</div>
 				<div class="profile-social-dtl">
 					<ul class="dtl-social">
-						<li><a href="#"><i class="icon nalika-facebook"></i></a></li>
-						<li><a href="#"><i class="icon nalika-twitter"></i></a></li>
-						<li><a href="#"><i class="icon nalika-linkedin"></i></a></li>
+						
 					</ul>
 				</div>
 			</div>
@@ -118,8 +117,8 @@ require("../controllers/product_controller.php");
                                 <!-- <li><a title="Dashboard v.2" href="index-1.html"><span class="mini-sub-pro">Dashboard v.2</span></a></li>
                                 <li><a title="Dashboard v.3" href="index-2.html"><span class="mini-sub-pro">Dashboard v.3</span></a></li> -->
                                 <li><a title="Product List" href="product-list.php"><span class="mini-sub-pro">Product List</span></a></li>
-                                <li><a title="Product Edit" href="product-edit.php"><span class="mini-sub-pro">Product Edit</span></a></li>
-                                <li><a title="Product Detail" href="product-detail.php"><span class="mini-sub-pro">Product Detail</span></a></li>
+                                <!-- <li><a title="Product Edit" href="product-edit.php"><span class="mini-sub-pro">Product Edit</span></a></li> -->
+                                <!-- <li><a title="Product Detail" href="product-detail.php"><span class="mini-sub-pro">Product Detail</span></a></li> -->
                                 <li><a title="Product Cart" href="product-cart.html"><span class="mini-sub-pro">Product Cart</span></a></li>
                                 <li><a title="Add Product" href="Add product.php"><span class="mini-sub-pro">Product add</span></a></li>
                                 <li><a title="Add Brand" href="brand.php"><span class="mini-sub-pro">Brand</span></a></li>
@@ -303,7 +302,15 @@ require("../controllers/product_controller.php");
 															<i class="icon nalika-down-arrow nalika-angle-dw nalika-icon"></i>
 														</a>
                                                     
-                                                        <li><a href="login.html"><span class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
+                                                        <?php 
+								 if(isset($_SESSION['loggedin'])){
+                                    
+									echo "<li><a href='../actions/logout.php'><span class='icon nalika-unlocked author-log-ic'></span>Logout</a></li>";
+									
+								 }else{
+									echo '<li><a href="./view/login.php">Login</a></li>';
+								 }
+								?>
                                                         </li>
                                                     </ul>
                                                 </li>
@@ -712,7 +719,7 @@ require("../controllers/product_controller.php");
 											</div>
 											<div class="breadcomb-ctn">
 												<h2>Brand</h2>
-												<p>Welcome to Nalika <span class="bread-ntd">Admin Template</span></p>
+												<p>Welcome to Admin <span class="bread-ntd">Dashboard</span></p>
 											</div>
 										</div>
                                     </div>
@@ -729,7 +736,7 @@ require("../controllers/product_controller.php");
             </div>
         </div>
         <!-- Single pro tab start-->
-        <div class="single-product-tab-area mg-b-30">
+        <!-- <div class="single-product-tab-area mg-b-30">
             <!-- Single pro tab review Start-->
             <div class="single-pro-review-area">
                 <div class="container-fluid">
@@ -738,9 +745,9 @@ require("../controllers/product_controller.php");
                             <div class="review-tab-pro-inner">
                                 <ul id="myTab3" class="tab-review-design">
                                     <li class="active"><a href="#description"><i class="icon nalika-edit" aria-hidden="true"></i> Brand add</a></li>
-                                    <li><a href="#reviews"><i class="icon nalika-picture" aria-hidden="true"></i> Pictures</a></li>
+                                    <!-- <li><a href="#reviews"><i class="icon nalika-picture" aria-hidden="true"></i> Pictures</a></li> -->
                                   
-                                </ul>
+                                </ul> -->
                                
                                 <form action="../actions/brandprocess.php" method="POST">
                                 <div id="myTabContent" class="tab-content custom-product-edit">

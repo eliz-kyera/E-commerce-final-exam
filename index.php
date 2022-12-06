@@ -275,13 +275,7 @@ session_start();
 						</div>
 						<h3>Gia</h3>
 						<p class="product-price"><span>Christmas Package</span> 85$ </p>
-						<?php
-							if(isset($_SESSION['loggedin'])){
-								echo "<a href='./nalika/view/cart.php' class='cart-btn'><i class='fas fa-shopping-cart'></i> Add to Cart</a>";
-							}else{
-									echo "<a href='./nalika/view/login.php' class='cart-btn'><i class='fas fa-shopping-cart'></i> Log In to add to cart </a>";
-								}
-						?> 
+						
 
         
 						<!-- <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a> -->
@@ -294,13 +288,7 @@ session_start();
 						</div>
 						<h3>Kelani</h3>
 						<p class="product-price"><span>Christmas package</span> 70$ </p>
-						<?php
-							if(isset($_SESSION['loggedin'])){
-								echo "<a href='cart.php' class='cart-btn'><i class='fas fa-shopping-cart'></i> Add to Cart</a>";
-							}else{
-									echo "<a href='login.php' class='cart-btn'><i class='fas fa-shopping-cart'></i> Log In to add to cart </a>";
-								}
-						?> 
+						
 
         
 						
@@ -313,14 +301,7 @@ session_start();
 						</div>
 						<h3>Aries</h3>
 						<p class="product-price"><span>christmas package</span> 35$ </p>
-						<?php
-							if(isset($_SESSION['loggedin'])){
-								echo "<a href='cart.php' class='cart-btn'><i class='fas fa-shopping-cart'></i> Add to Cart</a>";
-							}else{
-									echo "<a href='login.php' class='cart-btn'><i class='fas fa-shopping-cart'></i> Log In to add to cart </a>";
-								}
-						?> 
-
+						
         
 						<br>
 						
@@ -359,9 +340,9 @@ session_start();
                     <div class="time-counter"><div class="time-countdown clearfix" data-countdown="2020/2/01"><div class="counter-column"><div class="inner"><span class="count">00</span>Days</div></div> <div class="counter-column"><div class="inner"><span class="count">00</span>Hours</div></div>  <div class="counter-column"><div class="inner"><span class="count">00</span>Mins</div></div>  <div class="counter-column"><div class="inner"><span class="count">00</span>Secs</div></div></div></div>
                 	<?php
 							if(isset($_SESSION['loggedin'])){
-								echo "<a href='./nalika/view/cart.php' class='cart-btn'><i class='fas fa-shopping-cart'></i> Add to Cart</a>";
+								echo "<a href='./nalika/view/shop.php' class='cart-btn'><i class=''></i> Shop</a>";
 							}else{
-									echo "<a href='./nalika/view/login.php' class='cart-btn'><i class='fas fa-shopping-cart'></i> Log In to add to cart </a>";
+									echo "<a href='./nalika/view/login.php' class='cart-btn'><i class='fas fa-shopping-cart'></i> Log In to shop </a>";
 								}
 						?> 
                 </div>
@@ -395,7 +376,7 @@ session_start();
 								<img src="assets/img/avaters/avatar2.png" alt="">
 							</div>
 							<div class="client-meta">
-								<h3>David Niph <span>Local shop owner</span></h3>
+								<h3>David Niph <span>Influencer</span></h3>
 								<p class="testimonial-body">
 									" It's my first time ordering from this store and it didn't disappoint me I ordered some hangers with writing on and I was more than impressed by how fast they turned up and the quality of them I ordered them on the 7th nov and they turned up two days later .I would definitely order from this store again..thank you
 									"
@@ -410,7 +391,7 @@ session_start();
 								<img src="assets/img/avaters/avatar3.png" alt="">
 							</div>
 							<div class="client-meta">
-								<h3>Jacob Sikim <span>Local shop owner</span></h3>
+								<h3>Jacob Sikim <span>Event planner</span></h3>
 								<p class="testimonial-body">
 									" Ordered a personalised frame & received it in less than 48hrs! Amazing service! 10/10 !! Cannot recommend highly enough!! "
 								</p>
@@ -455,11 +436,12 @@ session_start();
 	<!-- shop banner -->
 	<section class="shop-banner">
     	<div class="container">
-        	<h3>Join our big sister program! <br> with big <span class="orange-text">Discount...</span></h3>
-            <div class="sale-percent"><span>Register! <br> Upto</span>20% <span>off</span></div>
-            <a href="./nalika/view/shop.php" class="cart-btn btn-lg">Register Now</a>
+        	<h3>December sale is on! <br> with big <span class="orange-text">Discount...</span></h3>
+            <div class="sale-percent"><span>Sale! <br> Upto</span>10% <span>off</span></div>
+            <a href="./nalika/view/shop.php" class="cart-btn btn-lg">Shop Now</a>
         </div>
     </section>
+	
 	<!-- end shop banner -->
 
 	<!-- latest news -->

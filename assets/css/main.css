@@ -473,16 +473,17 @@ a.boxed-btn, a.bordered-btn, a.cart-btn {
   line-height: 1.8;
 }
 
+
 .section-title {
   margin-bottom: 80px;
 }
 
-/* .breadcrumb-bg {
-  background-image: url(../img/pexels-photo-1303081.jpeg);
-} */
+.breadcrumb-bg {
+  background-image: url(../img/pexels-photo-6567285.jpeg);
+}
 
 .breadcrumb-text p {
-  color:#F28123;;
+  color:#F28123;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 7px;
@@ -517,7 +518,6 @@ a.boxed-btn, a.bordered-btn, a.cart-btn {
   z-index: -1;
   opacity: 0.8;
 }
-
 /* -----------------------------------------------------------------------------
 
 # Header Styles
@@ -1593,27 +1593,27 @@ div.owl-controls, .owl-controls div {
 
 ----------------------------------------------------------------------------- */
 .news-bg-1 {
-  background-image: url(../img/latest-news/news-bg-1.jpg);
+  background-image: url(../../nalika/img/bbdf230a37d1f555b9eff9df677bca3d.jpeg);
 }
 
 .news-bg-2 {
-  background-image: url(../img/latest-news/news-bg-2.jpg);
+  background-image: url(../../nalika/img/759f974bf79b54c5e6107878df7080d7.jpeg);
 }
 
 .news-bg-3 {
-  background-image: url(../img/latest-news/news-bg-3.jpg);
+  background-image: url(../../nalika/img/12c917d6d2663192c03ab37f1d933aa1.jpeg);
 }
 
 .news-bg-4 {
-  background-image: url(../img/latest-news/news-bg-4.jpg);
+  background-image: url(../../nalika/img/6d3be42ace43c96ecef7cc54260545d1.jpeg);
 }
 
 .news-bg-5 {
-  background-image: url(../img/latest-news/news-bg-5.jpg);
+  background-image: url(../../nalika/img/6ff4f5e83319a80d47cca72c663c5fa5.jpeg);
 }
 
 .news-bg-6 {
-  background-image: url(../img/latest-news/news-bg-6.jpg);
+  background-image: url(../../nalika/img/fbf5ccd0213e4ea90ef6055bbbf9889e.jpeg);
 }
 
 .latest-news-bg {
@@ -2069,7 +2069,7 @@ a.video-play-btn {
 }
 
 .abt-bg {
-  background-image: url(../img/[GetPaidStock.com]-637e416861689.jpeg);
+  background-image: url(../../nalika/img/b484baf75947502c49ce3ae99df17b04.jpeg);
   height: 100%;
   width: 100%;
   background-size: cover;
@@ -2120,7 +2120,7 @@ a.video-play-btn {
 .shop-banner { 
   position: relative;
   background-color: #f5f5f5;
-  background-image: url(); 
+  background-image: url(../../nalika/img/0a53fab7f72b0ab062ce15b30277973c.jpeg); 
    background-size: cover;
   padding: 110px 0px 115px; 
  } 
@@ -2161,7 +2161,7 @@ a.video-play-btn {
 }
 
 .feature-bg:after {
-  background-image: url(../img/f597d6760cb0d6f02b3bd5cadf2d3d8d.jpeg);
+  background-image: url(../../nalika/img/161494386d0959ccf5628266d32d8a35.jpeg);
   position: absolute;
   right: 0;
   top: 0;
@@ -2177,20 +2177,17 @@ a.video-play-btn {
 }
 
 .team-bg-1 {
-  background-image: url(../img/team/team-1.jpg);
+  background-image: url(../../nalika/img/Unknown.jpeg);
 }
 
 .team-bg-2 {
-  background-image: url(../img/team/team-2.jpg);
+  background-image: url(../../nalika/img/esi.jpeg);
 }
-
 .team-bg-3 {
-  background-image: url(../img/team/team-3.jpg);
-}
+  background-image: url(../img/s.jpeg);
+} 
 
-.team-bg-4 {
-  background-image: url(../img/team/team-4.jpg);
-}
+
 
 .team-bg {
   height: 400px;

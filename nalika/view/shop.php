@@ -77,7 +77,7 @@ session_start()
 									<ul class="sub-menu">
 										<li><a href="shop.html">Shop</a></li>
 										<li><a href="checkout.php">Check Out</a></li>
-										<li><a href="single-product.php">Single Product</a></li>
+										<!-- <li><a href="single-product.php">Single Product</a></li> -->
 										<li><a href="cart.php">Cart</a></li>
 									</ul>
 								</li>
@@ -127,7 +127,7 @@ session_start()
 	<!-- end search arewa -->
 	
 	<!-- breadcrumb-section -->
-	<div class="breadcrumb-section">
+	<div class="breadcrumb-section breadcrumb-bg">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 offset-lg-2 text-center">
@@ -275,11 +275,7 @@ session_start()
 				<div class="col-lg-12 text-center">
 					<div class="pagination-wrap">
 						<ul>
-							<li><a href="#">Prev</a></li>
-							<li><a href="#">1</a></li>
-							<li><a class="active" href="#">2</a></li>
-							<li><a href="#">3</a></li>
-							<li><a href="#">Next</a></li>
+							
 						</ul>
 					</div>
 				</div>

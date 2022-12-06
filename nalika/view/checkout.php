@@ -1,5 +1,6 @@
 <?php
 require("../controllers/cart_controller.php");
+require("../controllers/customer_controller.php");
 session_start();
 
 
@@ -90,7 +91,7 @@ session_start();
 							<ul>
 								<li class="current-list-item"><a href="../../index.php">Home</a>
 									<ul class="sub-menu">
-										<li><a href="index.php">Static Home</a></li>
+										
 										<!-- <li><a href="index_2.html">Slider Home</a></li> -->
 									</ul>
 								</li>
@@ -107,10 +108,18 @@ session_start();
 									<ul class="sub-menu">
 										<li><a href="shop.php">Shop</a></li>
 										<li><a href="checkout.php">Check Out</a></li>
-										<li><a href="single-product.php">Single Product</a></li>
+										<!-- <li><a href="single-product.php">Single Product</a></li> -->
 										<li><a href="cart.php">Cart</a></li>
 									</ul>
 								</li>
+								<?php 
+								if(isset($_SESSION['loggedin'])){
+									echo "<li><a href='../actions/logout.php'>Logout</a></li>";
+									
+								}else{
+									echo '<li><a href="login.php">Login</a></li>';
+								}
+								?>
 								<li>
 									<div class="header-icons">
 										<a class="shopping-cart" href="cart.php"><i class="fas fa-shopping-cart"></i></a>
@@ -313,19 +322,19 @@ session_start();
 				<div class="col-lg-12">
 					<div class="logo-carousel-inner">
 						<div class="single-logo-item">
-							<img src="assets/img/company-logos/1.png" alt="">
+							<img src="../../assets/img/company-logos/1.png" alt="">
 						</div>
 						<div class="single-logo-item">
-							<img src="assets/img/company-logos/2.png" alt="">
+							<img src="../../assets/img/company-logos/2.png" alt="">
 						</div>
 						<div class="single-logo-item">
-							<img src="assets/img/company-logos/3.png" alt="">
+							<img src="../../assets/img/company-logos/3.png" alt="">
 						</div>
 						<div class="single-logo-item">
-							<img src="assets/img/company-logos/4.png" alt="">
+							<img src="../../assets/img/company-logos/4.png" alt="">
 						</div>
 						<div class="single-logo-item">
-							<img src="assets/img/company-logos/5.png" alt="">
+							<img src="../../assets/img/company-logos/5.png" alt="">
 						</div>
 					</div>
 				</div>

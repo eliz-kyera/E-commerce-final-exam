@@ -130,12 +130,12 @@ session_start();
 	<!-- end search arewa -->
 	
 	<!-- breadcrumb-section -->
-	<div class="breadcrumb-section">
+	<div class="breadcrumb-section breadcrumb-bg">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 offset-lg-2 text-center">
 					<div class="breadcrumb-text">
-						<p>We sale fresh fruits</p>
+						<p>Get all your customized packages at affordable prices</p>
 						<h1>About Us</h1>
 					</div>
 				</div>
@@ -159,7 +159,7 @@ session_start();
 									</div>
 									<div class="content">
 										<h3>Home Delivery</h3>
-										<p>sit voluptatem accusantium dolore mque laudantium, totam rem aperiam, eaque ipsa quae ab illo.</p>
+										<p>Get your customized and gift set right at your doorstep.</p>
 									</div>
 								</div>
 							</div>
@@ -170,7 +170,7 @@ session_start();
 									</div>
 									<div class="content">
 										<h3>Best Price</h3>
-										<p>sit voluptatem accusantium dolore mque laudantium, totam rem aperiam, eaque ipsa quae ab illo.</p>
+										<p>Best quality products and packages at affordable prices.</p>
 									</div>
 								</div>
 							</div>
@@ -181,7 +181,7 @@ session_start();
 									</div>
 									<div class="content">
 										<h3>Custom Box</h3>
-										<p>sit voluptatem accusantium dolore mque laudantium, totam rem aperiam, eaque ipsa quae ab illo.</p>
+										<p>Customize your box to your desired preference.</p>
 									</div>
 								</div>
 							</div>
@@ -192,7 +192,7 @@ session_start();
 									</div>
 									<div class="content">
 										<h3>Quick Refund</h3>
-										<p>sit voluptatem accusantium dolore mque laudantium, totam rem aperiam, eaque ipsa quae ab illo.</p>
+										<p>If your package is not what you intended for, we have an exchange and return policy that gets you sorted.</p>
 									</div>
 								</div>
 							</div>
@@ -208,8 +208,8 @@ session_start();
 	<section class="shop-banner">
     	<div class="container">
         	<h3>December sale is on! <br> with big <span class="orange-text">Discount...</span></h3>
-            <div class="sale-percent"><span>Sale! <br> Upto</span>50% <span>off</span></div>
-            <a href="shop.html" class="cart-btn btn-lg">Shop Now</a>
+            <div class="sale-percent"><span>Sale! <br> Upto</span>10% <span>off</span></div>
+            <a href="shop.php" class="cart-btn btn-lg">Shop Now</a>
         </div>
     </section>
 	<!-- end shop banner -->
@@ -221,7 +221,7 @@ session_start();
 				<div class="col-lg-8 offset-lg-2 text-center">
 					<div class="section-title">
 						<h3>Our <span class="orange-text">Team</span></h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio.</p>
+						<p>Inovative, creatuve and hardworking.</p>
 					</div>
 				</div>
 			</div>
@@ -229,7 +229,7 @@ session_start();
 				<div class="col-lg-4 col-md-6">
 					<div class="single-team-item">
 						<div class="team-bg team-bg-1"></div>
-						<h4>Jimmy Doe <span>Farmer</span></h4>
+						<h4>Nicole<span>Genral manager</span></h4>
 						<ul class="social-link-team">
 							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
 							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
@@ -240,7 +240,7 @@ session_start();
 				<div class="col-lg-4 col-md-6">
 					<div class="single-team-item">
 						<div class="team-bg team-bg-2"></div>
-						<h4>Marry Doe <span>Farmer</span></h4>
+						<h4>Esi <span>Creative designer</span></h4>
 						<ul class="social-link-team">
 							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
 							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
@@ -251,7 +251,7 @@ session_start();
 				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
 					<div class="single-team-item">
 						<div class="team-bg team-bg-3"></div>
-						<h4>Simon Joe <span>Farmer</span></h4>
+						<h4>Simon Joe <span></span></h4>
 						<ul class="social-link-team">
 							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
 							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
@@ -263,9 +263,8 @@ session_start();
 		</div>
 	</div>
 	<!-- end team section -->
-
-	<!-- testimonail-section -->
-	<div class="testimonail-section mt-80 mb-150">
+<!-- testimonail-section -->
+<div class="testimonail-section mt-150 mb-150">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-10 offset-lg-1 text-center">
@@ -277,7 +276,7 @@ session_start();
 							<div class="client-meta">
 								<h3>Saira Hakim <span>Local shop owner</span></h3>
 								<p class="testimonial-body">
-									" Sed ut perspiciatis unde omnis iste natus error veritatis et  quasi architecto beatae vitae dict eaque ipsa quae ab illo inventore Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium "
+									" They sell lovely items, very good quality and the personalization is great quality too. Couldn't believe how quickly they deliver even with it being personalized. A very happy customer that will be buying from them again. "
 								</p>
 								<div class="last-icon">
 									<i class="fas fa-quote-right"></i>
@@ -289,9 +288,10 @@ session_start();
 								<img src="../../assets/img/avaters/avatar2.png" alt="">
 							</div>
 							<div class="client-meta">
-								<h3>David Niph <span>Local shop owner</span></h3>
+								<h3>David Niph <span>Influencer</span></h3>
 								<p class="testimonial-body">
-									" Sed ut perspiciatis unde omnis iste natus error veritatis et  quasi architecto beatae vitae dict eaque ipsa quae ab illo inventore Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium "
+									" It's my first time ordering from this store and it didn't disappoint me I ordered some hangers with writing on and I was more than impressed by how fast they turned up and the quality of them I ordered them on the 7th nov and they turned up two days later .I would definitely order from this store again..thank you
+									"
 								</p>
 								<div class="last-icon">
 									<i class="fas fa-quote-right"></i>
@@ -303,9 +303,9 @@ session_start();
 								<img src="../../assets/img/avaters/avatar3.png" alt="">
 							</div>
 							<div class="client-meta">
-								<h3>Jacob Sikim <span>Local shop owner</span></h3>
+								<h3>Jacob Sikim <span>Event planner</span></h3>
 								<p class="testimonial-body">
-									" Sed ut perspiciatis unde omnis iste natus error veritatis et  quasi architecto beatae vitae dict eaque ipsa quae ab illo inventore Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium "
+									" Ordered a personalised frame & received it in less than 48hrs! Amazing service! 10/10 !! Cannot recommend highly enough!! "
 								</p>
 								<div class="last-icon">
 									<i class="fas fa-quote-right"></i>
@@ -317,6 +317,7 @@ session_start();
 			</div>
 		</div>
 	</div>
+	<!-- end testimonail-section -->
 	<!-- end testimonail-section -->
 
 	<!-- logo carousel -->

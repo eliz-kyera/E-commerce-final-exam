@@ -129,6 +129,14 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || $_SESSION
 										<li><a href="cart.php">Cart</a></li>
 									</ul>
 								</li>
+								<?php 
+								if(isset($_SESSION['loggedin'])){
+									echo "<li><a href='../actions/logout.php'>Logout</a></li>";
+									
+								}else{
+									echo '<li><a href="login.php">Login</a></li>';
+								}
+								?>
 								<li>
 									<div class="header-icons">
 										<a class="shopping-cart" href="cart.php"><i class="fas fa-shopping-cart"></i></a>

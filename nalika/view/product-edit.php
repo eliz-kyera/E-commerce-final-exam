@@ -330,7 +330,14 @@ if (isset($_POST["submit"])) {
 															<i class="icon nalika-down-arrow nalika-angle-dw nalika-icon"></i>
 														</a>
                                                     
-                                                        <li><a href="login.html"><span class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
+                                                        <?php 
+								 if(isset($_SESSION['loggedin'])){
+									echo "<li><a href='../actions/logout.php'><span class='icon nalika-unlocked author-log-ic'></span>Logout</a></li>";
+									
+								 }else{
+									echo '<li><a href="./view/login.php">Login</a></li>';
+								 }
+								?>
                                                         </li>
                                                     </ul>
                                                 </li>
@@ -774,7 +781,7 @@ if (isset($_POST["submit"])) {
 											</div>
 											<div class="breadcomb-ctn">
 												<h2>Product Edit</h2>
-												<p>Welcome to Nalika <span class="bread-ntd">Admin Template</span></p>
+												<p>Welcome to Admin<span class="bread-ntd">Dashboard</span></p>
 											</div>
 										</div>
                                     </div>

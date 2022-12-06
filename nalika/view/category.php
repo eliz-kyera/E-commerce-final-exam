@@ -1,5 +1,6 @@
 <?php
 require("../controllers/product_controller.php");
+session_start()
 ?>
 <!doctype html>
 <html class="no-js" lang="en">
@@ -84,7 +85,7 @@ require("../controllers/product_controller.php");
 			<div class="nalika-profile">
 				<div class="profile-dtl">
 					<a href="#"><img src="img/notification/4.jpg" alt="" /></a>
-					<h2>Lakian <span class="min-dtn">Das</span></h2>
+					<h2>Shirley Yankyera <span class="min-dtn"></span></h2>
 				</div>
 				<div class="profile-social-dtl">
 					<ul class="dtl-social">
@@ -107,8 +108,8 @@ require("../controllers/product_controller.php");
                                 <!-- <li><a title="Dashboard v.2" href="index-1.html"><span class="mini-sub-pro">Dashboard v.2</span></a></li>
                                 <li><a title="Dashboard v.3" href="index-2.html"><span class="mini-sub-pro">Dashboard v.3</span></a></li> -->
                                 <li><a title="Product List" href="product-list.php"><span class="mini-sub-pro">Product List</span></a></li>
-                                <li><a title="Product Edit" href="product-edit.php"><span class="mini-sub-pro">Product Edit</span></a></li>
-                                <li><a title="Product Detail" href="product-detail.php"><span class="mini-sub-pro">Product Detail</span></a></li>
+                                <!-- <li><a title="Product Edit" href="product-edit.php"><span class="mini-sub-pro">Product Edit</span></a></li> -->
+                                <!-- <li><a title="Product Detail" href="product-detail.php"><span class="mini-sub-pro">Product Detail</span></a></li> -->
                                 <li><a title="Product Cart" href="product-cart.html"><span class="mini-sub-pro">Product Cart</span></a></li>
                                 <li><a title="Add Product" href="Add product.php"><span class="mini-sub-pro">Product add</span></a></li>
                                 <li><a title="Add Brand" href="brand.php"><span class="mini-sub-pro">Brand</span></a></li>
@@ -701,7 +702,7 @@ require("../controllers/product_controller.php");
 											</div>
 											<div class="breadcomb-ctn">
 												<h2>Category</h2>
-												<p>Welcome to Nalika <span class="bread-ntd">Admin Template</span></p>
+												<p>Welcome to <span class="bread-ntd">Admin Dashboard</span></p>
 											</div>
 										</div>
                                     </div>
@@ -727,7 +728,7 @@ require("../controllers/product_controller.php");
                             <div class="review-tab-pro-inner">
                                 <ul id="myTab3" class="tab-review-design">
                                     <li class="active"><a href="#description"><i class="icon nalika-edit" aria-hidden="true"></i> Category add</a></li>
-                                    <li><a href="#reviews"><i class="icon nalika-picture" aria-hidden="true"></i> Pictures</a></li>
+                                    <!-- <li><a href="#reviews"><i class="icon nalika-picture" aria-hidden="true"></i> Pictures</a></li> -->
                                   
                                 </ul>
                                

@@ -1,5 +1,6 @@
 <?php
 require("../controllers/product_controller.php");
+session_start()
 ?>
 <!doctype html>
 <html class="no-js" lang="en">
@@ -104,7 +105,7 @@ require("../controllers/product_controller.php");
                                 <!-- <li><a title="Dashboard v.2" href="index-1.html"><span class="mini-sub-pro">Dashboard v.2</span></a></li>
                                 <li><a title="Dashboard v.3" href="index-2.html"><span class="mini-sub-pro">Dashboard v.3</span></a></li> -->
                                 <li><a title="Product List" href="product-list.php"><span class="mini-sub-pro">Product List</span></a></li>
-                                <li><a title="Product Edit" href="product-edit.php"><span class="mini-sub-pro">Product Edit</span></a></li>
+                                <!-- <li><a title="Product Edit" href="product-edit.php"><span class="mini-sub-pro">Product Edit</span></a></li> -->
                                 <!-- <li><a title="Product Detail" href="product-detail.php"><span class="mini-sub-pro">Product Detail</span></a></li> -->
                                 <li><a title="Product Cart" href="product-cart.php"><span class="mini-sub-pro">Product Cart</span></a></li>
                                 <li><a title="Add Product" href="Add product.php"><span class="mini-sub-pro">Product add</span></a></li>
@@ -289,10 +290,16 @@ require("../controllers/product_controller.php");
 															<i class="icon nalika-down-arrow nalika-angle-dw nalika-icon"></i>
 														</a>
                                                     
-                                                        <!-- <li><a href="login.html"><span class="icon nalika-unlocked author-log-ic"></span> Log Out</a> -->
+                                                        <?php 
+								 if(isset($_SESSION['loggedin'])){
+                                    
+									echo "<li><a href='../actions/logout.php'><span class='icon nalika-unlocked author-log-ic'></span>Logout</a></li>";
+									
+								 }else{
+									echo '<li><a href="./view/login.php">Login</a></li>';
+								 }
+								?>
                                                         </li>
-                                                    </ul>
-                                                </li>
                                                 <li class="nav-item nav-setting-open"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="icon nalika-menu-task"></i></a>
 
                                                     <div role="menu" class="admintab-wrap menu-setting-wrap menu-setting-wrap-bg dropdown-menu animated zoomIn">
