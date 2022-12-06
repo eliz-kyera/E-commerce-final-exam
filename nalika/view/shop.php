@@ -387,9 +387,9 @@ session_start()
 	<!-- bootstrap -->
 	<script src="../../assets/bootstrap/js/bootstrap.min.js"></script>
 	<!-- count down -->
-	<script src="../../assets/js/jquery.countdown.js"></script>
+	<!-- <script src="../../assets/js/jquery.countdown.js"></script> -->
 	<!-- isotope -->
-	<script src="../../assets/js/jquery.isotope-3.0.6.min.js"></script>
+	<!-- <script src="../../assets/js/jquery.isotope-3.0.6.min.js"></script> -->
 	<!-- waypoints -->
 	<script src="../../assets/js/waypoints.js"></script>
 	<!-- owl carousel -->
