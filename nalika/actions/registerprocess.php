@@ -3,11 +3,9 @@ require("../controllers/customer_controller.php");
 
 if (isset($_POST["submit"])) {
     $name = $_POST['fullname'];
-    
     $email = $_POST['email'];
     $password = $_POST['password'];
     $country=$_POST['country'];
-    $city= $_POST['city'];
     $contact = $_POST['contact'];
     
 
@@ -17,7 +15,7 @@ if (isset($_POST["submit"])) {
     $hash = password_hash($password, PASSWORD_DEFAULT);
 
     // check whether function works  This is a controller 
-    $check = add_customer_ctrl($name, $email, $hash, $country, $city, $contact);
+    $check = add_customer_ctrl($name, $email, $hash, $country,$contact);
 
     if ($check) {
         echo "Registration Successful";

@@ -21,13 +21,13 @@
       </label>
       <label>
         <span>Inscription</span>
-        <input type="text" name="insc" required>
+        <input type="text" name="insc" value="<?php echo $_GET['insc']; ?>" required>
       </label>
-      <!-- <label>
+      <label>
         <span>Color</span>
         <input type="text" name="col" required>
-      </label> -->
-      <button class="button-33" name= "submit" role="button">INSERT</button>
+      </label>
+      <button class="button-33" name= "update_insc" type="submit" role="button">UPDATE</button>
       <!-- <p class="forgot-pass">Forgot Password ?</p> -->
 </form>
 

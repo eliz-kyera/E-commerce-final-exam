@@ -8,13 +8,13 @@ include("../functions/functions.php");
 
 
 //--INSERT--//
-function add_customer_ctrl($name, $email, $pass, $country, $city, $contact){
+function add_customer_ctrl($name, $email, $pass, $country,$contact){
 
 // creating an instance
   $add = new customerclass;
 
 // return method
-  $run_query =  $add -> add_customer($name, $email, $pass, $country, $city, $contact);
+  $run_query =  $add -> add_customer($name, $email, $pass, $country, $contact);
 
   if ($run_query) {
     return $run_query; 

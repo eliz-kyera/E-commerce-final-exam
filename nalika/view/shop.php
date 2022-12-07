@@ -2,6 +2,8 @@
 require_once("../controllers/product_controller.php");
 session_start()
 
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -108,6 +110,7 @@ session_start()
 	<!-- end header -->
 
 	<!-- search area -->
+	<!-- search area -->
 	<div class="search-area">
 		<div class="container">
 			<div class="row">
@@ -116,14 +119,18 @@ session_start()
 					<div class="search-bar">
 						<div class="search-bar-tablecell">
 							<h3>Search For:</h3>
-							<input type="text" placeholder="Keywords">
-							<button type="submit">Search <i class="fas fa-search"></i></button>
+							<form method="GET" action="search_product.php">
+							<input type="text" name="search" id= "search" placeholder="search by title">
+							<button type="submit" name="searchbtn">Search <i class="fas fa-search"></i></button>
+							</form>
+
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
 	<!-- end search arewa -->
 	
 	<!-- breadcrumb-section -->
@@ -132,7 +139,7 @@ session_start()
 			<div class="row">
 				<div class="col-lg-8 offset-lg-2 text-center">
 					<div class="breadcrumb-text">
-						<p>Fresh and Organic</p>
+						<p>Explore our different variety of products</p>
 						<h1>Shop</h1>
 					</div>
 				</div>
@@ -168,7 +175,7 @@ session_start()
 						<h3><?php echo $value['product_title'] ?></h3>
 						<p class="product"><?php echo $value['product_desc'] ?></p>
 						<p class="product-price">GH₵ <?php echo $value['product_price'] ?></p>
-						<a href="../actions/addcart_process.php?product_id=<?php echo $value['product_id']?> "class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+						<a href="inscription.php?product_id=<?php echo $value['product_id']?>&product_name=<?php echo $value['product_title'] ?> "  class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 						
 					</div>
 				</div> 
@@ -387,9 +394,9 @@ session_start()
 	<!-- bootstrap -->
 	<script src="../../assets/bootstrap/js/bootstrap.min.js"></script>
 	<!-- count down -->
-	<!-- <script src="../../assets/js/jquery.countdown.js"></script> -->
+	 <script src="../../assets/js/jquery.countdown.js"></script> 
 	<!-- isotope -->
-	<!-- <script src="../../assets/js/jquery.isotope-3.0.6.min.js"></script> -->
+	 <script src="../../assets/js/jquery.isotope-3.0.6.min.js"></script> 
 	<!-- waypoints -->
 	<script src="../../assets/js/waypoints.js"></script>
 	<!-- owl carousel -->

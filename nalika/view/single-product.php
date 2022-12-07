@@ -1,12 +1,13 @@
-
-<?php 
+<?php
 session_start();
 
 require("../controllers/product_controller.php");
+require("../controllers/cart_controller.php")
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,16 +40,35 @@ require("../controllers/product_controller.php");
 	<link rel="stylesheet" href="../../assets/css/responsive.css">
 
 </head>
+
 <body>
-	
+<?php
+
+
+
+
+
+
+$cid = $_SESSION['customer_id'];
+
+$count_cart = count_cart_ctrl($cid);
+$every_item = every_cart_item_ctr($cid);
+// print_r($every_item);
+$total_price = total_price_ctrl($cid);
+$amt = 0;
+foreach ($total_price as $total) {
+	$amt = $total['total'];
+}
+?>
+
 	<!--PreLoader-->
-    <div class="loader">
-        <div class="loader-inner">
-            <div class="circle"></div>
-        </div>
-    </div>
-    <!--PreLoader Ends-->
-	
+	<div class="loader">
+		<div class="loader-inner">
+			<div class="circle"></div>
+		</div>
+	</div>
+	<!--PreLoader Ends-->
+
 	<!-- header -->
 	<div class="top-header-area" id="sticker">
 		<div class="container">
@@ -73,11 +93,11 @@ require("../controllers/product_controller.php");
 									</ul>
 								</li>
 								<li><a href="about.php">About</a></li>
-								
+
 								<li><a href="news.php">News</a>
 									<ul class="sub-menu">
 										<li><a href="news.php">News</a></li>
-										
+
 									</ul>
 								</li>
 								<li><a href="contact.php">Contact</a></li>
@@ -85,15 +105,14 @@ require("../controllers/product_controller.php");
 									<ul class="sub-menu">
 										<li><a href="shop.php">Shop</a></li>
 										<li><a href="checkout.php">Check Out</a></li>
-										<li><a href="single-product.php">Single Product</a></li>
+										<!-- <li><a href="single-product.php">Single Product</a></li> -->
 										<li><a href="cart.php">Cart</a></li>
 									</ul>
 								</li>
-								<?php 
-								if(isset($_SESSION['loggedin'])){
+								<?php
+								if (isset($_SESSION['loggedin'])) {
 									echo "<li><a href='../actions/logout.php'>Logout</a></li>";
-									
-								}else{
+								} else {
 									echo '<li><a href="login.php">Login</a></li>';
 								}
 								?>
@@ -133,7 +152,7 @@ require("../controllers/product_controller.php");
 		</div>
 	</div>
 	<!-- end search arewa -->
-	
+
 	<!-- breadcrumb-section -->
 	<div class="breadcrumb-section breadcrumb-bg">
 		<div class="container">
@@ -152,51 +171,62 @@ require("../controllers/product_controller.php");
 	<!-- single product -->
 
 	<?php
-             $pid = $_GET['id']; 
-              $product_one = select_one_product($pid);
+	$pid = $_GET['id'];
+	$product_one = select_one_product($pid);
 
-            $product_id = $product_one['product_id'];
-            $product_name = $product_one['product_title'];
-            
-          ?>
+	$product_id = $product_one['product_id'];
+	$product_name = $product_one['product_title'];
+
+
+    foreach ($every_item as $cart) {
+	    
+	    $qty = $cart['qty'];
+	    $insc = $cart['inscription'];
+    }
+
+	?>
+
+
 
 	<div class="single-product mt-150 mb-150">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-5">
 					<div class="single-product-img">
-						<img src=<?php echo $product_one['product_image']?>>
+						<img src=<?php echo $product_one['product_image'] ?>>
 					</div>
 				</div>
 				<div class="col-md-7">
 					<div class="single-product-content">
-					<h3> <?php echo $product_one['product_title']?></h3>
-						<p class="single-product-pricing">GH₵ <?php echo $product_one['product_price']?></p>
-						<h5><?php echo $product_one['product_desc']?></h5>
-						<p class="single-product"><?php echo $product_one['product_keywords']?></p>
-						<div class="single-product-form">
-							<form action="index.html">
-								<input type="number" placeholder="0">
-							</form>
-							<a href="../actions/addcart_process.php?product_id=<?php echo $product_one['product_id']; ?>" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-							
+						<h3> <?php echo $product_one['product_title'] ?></h3>
+						<p class="single-product-pricing">GH₵ <?php echo $product_one['product_price'] ?></p>
+						<h5><?php echo $product_one['product_desc'] ?></h5>
+						<p class="single-product"><?php echo $product_one['product_keywords'] ?></p>
+						<div class=" align-items-center ">
+							<!-- <a class='btn btn-danger' href='../actions/addcart_process.php?decID=<?php echo $cid; ?>' role='button'>-</a>
+							<span class="mx-2"><?php echo $qty; ?></span>
+							<a class='btn btn-success' href='../actions/addcart_process.php?incID=<?php echo $cid; ?>' role='button'>+</a> -->
 						</div>
-						<h4>Share:</h4>
-						<ul class="product-share">
-							<li><a href=""><i class="fab fa-facebook-f"></i></a></li>
-							<li><a href=""><i class="fab fa-twitter"></i></a></li>
-							<li><a href=""><i class="fab fa-google-plus-g"></i></a></li>
-							<li><a href=""><i class="fab fa-linkedin"></i></a></li>
-						</ul>
+						<br>
+						<a href="../actions/addcart_process.php?product_id=<?php echo $product_one['product_id']; ?>" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+
 					</div>
+					<h4>Share:</h4>
+					<ul class="product-share">
+						<li><a href=""><i class="fab fa-facebook-f"></i></a></li>
+						<li><a href=""><i class="fab fa-twitter"></i></a></li>
+						<li><a href=""><i class="fab fa-google-plus-g"></i></a></li>
+						<li><a href=""><i class="fab fa-linkedin"></i></a></li>
+					</ul>
 				</div>
 			</div>
 		</div>
 	</div>
+	</div>
 	<!-- end single product -->
 
 	<!-- more products -->
-	
+
 	<!-- end more products -->
 
 	<!-- logo carousel -->
@@ -273,13 +303,13 @@ require("../controllers/product_controller.php");
 		</div>
 	</div>
 	<!-- end footer -->
-	
+
 	<!-- copyright -->
 	<div class="copyright">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-md-12">
-					<p>Copyrights &copy; 2019 - <a href="https://imransdesign.com/">Imran Hossain</a>,  All Rights Reserved.</p>
+					<p>Copyrights &copy; 2019 - <a href="https://imransdesign.com/">Imran Hossain</a>, All Rights Reserved.</p>
 				</div>
 				<div class="col-lg-6 text-right col-md-12">
 					<div class="social-icons">
@@ -296,7 +326,7 @@ require("../controllers/product_controller.php");
 		</div>
 	</div>
 	<!-- end copyright -->
-	
+
 	<!-- jquery -->
 	<script src="../../assets/js/jquery-1.11.3.min.js"></script>
 	<!-- bootstrap -->
@@ -319,4 +349,5 @@ require("../controllers/product_controller.php");
 	<script src="../../assets/js/main.js"></script>
 
 </body>
+
 </html>

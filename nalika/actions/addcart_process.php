@@ -5,20 +5,45 @@ include_once("../controllers/product_controller.php");
 // Retrieves the brand name and passes it into the add brand controller
 session_start();
 
+
+if(isset($_GET['update_insc'])){
+    
+    $inc = $_GET['insc'];
+    //$color = $_GET['color'];
+    $cid = $_SESSION['customer_id'];
+    $ip_address = $_SERVER["REMOTE_ADDR"];
+    $pid = $_GET['product_id'];
+
+    $updated = update_cart_insc($pid, $cid, $inc);
+
+    if($updated){
+        header("location: ../view/cart.php");
+    }else{
+        header("location: ../view/cart.php");
+    }
+
+    return;
+}
+
 if (isset($_GET["product_id"])) {
     $cid = $_SESSION['customer_id'];
     $pid = $_GET['product_id'];
     $ip_address = $_SERVER["REMOTE_ADDR"];
 
+
     $duplicate_check = duplicate_cart_ctrl($pid, $cid,);
 
     if (count($duplicate_check) == 0) {
-        $check = add_cart_ctrl($pid, $ip_address, $cid);
+        $inc = $_GET['insc'];
+        $color = $_GET['color'];
+        $check = add_cart_ctrl($pid, $ip_address, $cid, $inc);
         if ($check) {
             header('Location: ../view/shop.php');
         } else {
             echo "cart insertion failed";
         }
+    }else{
+        header('Location: ../view/shop.php');
     }
 }
 

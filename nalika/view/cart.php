@@ -44,6 +44,11 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || $_SESSION
 	<!-- responsive -->
 	<link rel="stylesheet" href="../../assets/css/responsive.css">
 
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<link rel="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+
 </head>
 
 <body>
@@ -125,15 +130,14 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || $_SESSION
 									<ul class="sub-menu">
 										<li><a href="shop.php">Shop</a></li>
 										<li><a href="checkout.php">Check Out</a></li>
-										<li><a href="single-product.php">Single Product</a></li>
+										<!-- <li><a href="single-product.php">Single Product</a></li> -->
 										<li><a href="cart.php">Cart</a></li>
 									</ul>
 								</li>
-								<?php 
-								if(isset($_SESSION['loggedin'])){
+								<?php
+								if (isset($_SESSION['loggedin'])) {
 									echo "<li><a href='../actions/logout.php'>Logout</a></li>";
-									
-								}else{
+								} else {
 									echo '<li><a href="login.php">Login</a></li>';
 								}
 								?>
@@ -203,6 +207,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || $_SESSION
 									<th class="product-name">Name</th>
 									<th class="product-price">Price</th>
 									<th class="product-quantity">Quantity</th>
+									<th class="product-quantity">Inscription</th>
 									<!-- <th class="product-quantity">Add inscription</th> -->
 									<th class="product-total">Sub-total</th>
 								</tr>
@@ -221,6 +226,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || $_SESSION
 								$product_image = $cart['product_image'];
 								$cid = $cart['product_id'];
 								$qty = $cart['qty'];
+								$insc = $cart['inscription'];
 
 
 								//echo "<option value = $product_id>$product_name</option>";
@@ -243,8 +249,16 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || $_SESSION
 											<span class="mx-2"><?php echo $qty; ?></span>
 											<a class='btn btn-success' href='../actions/addcart_process.php?incID=<?php echo $cid; ?>' role='button'>+</a>
 										</div>
-									</td>
-									 <td class="product-total"><?php echo $qty*$product_price ?></td> 
+										<!-- </td><a href='../actions/deletefrom_cart.php?id=< ?>'><span class="fa fa-pencil-square-o"></span></a> -->
+										<!-- <td> <span class="fa fa-pencil-square-o">hello</span></td>  -->
+									<td class="product-name"><?php echo $insc ?>&nbsp;&nbsp;&nbsp;<a href="update_inscription.php?product_id=<?php echo $cart['product_id']?>&insc=<?php echo $insc?>&product_name=<?php echo $product_name ?>">
+											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+												<path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+												<path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+											</svg>
+
+										</a></td>
+									<td class="product-total"><?php echo $qty * $product_price ?></td>
 								</tr>
 							<?php
 							}

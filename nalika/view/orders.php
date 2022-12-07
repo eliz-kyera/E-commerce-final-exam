@@ -1,65 +1,25 @@
 <?php
-
-// Initialize the session
-// session_start();
- 
-// // Check if the user is logged in, if not then redirect him to login page
-// if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || $_SESSION['role'] != 1){
-//     header("location: ../index.php");
-//     exit;
-// }
-
-
-require("../controllers/product_controller.php");
-
-
-$pid = $_GET['id'];
-
-$data = select_one_product($pid);
-
-
-//initiating a server to get the post
-if (isset($_POST["submit"])) {
-    $pcat = $_POST['category'];
-    $pbrand = $_POST['brand'];
-    $ptitle = $_POST['product_title'];
-    $pprice = $_POST['product_price'];
-    $pdesc = $_POST['product_desc'];
-    // $pimage = $_POST['pimage'];
-    $pkey = $_POST['product_keywords'];
-    
-
-    $p_update = update_products($pid, $pcat, $pbrand, $ptitle, $pprice, $pdesc, $pkey);
-    if ($p_update) {
-       
-        header("Location: ../view/product-list.php");
-    }
-    else{
-        echo "update failed"; 
-    }
-}
+require("../controllers/cart_controller.php");
+session_start()
 ?>
-
-
-
 <!doctype html>
 <html class="no-js" lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Product Edit | Nalika - Material Admin Template</title>
+    <title>Product List | Nalika - Material Admin Template</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
 		============================================ -->
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="shortcut icon" type="../image/x-icon" href="../img/favicon.ico">
     <!-- Google Fonts
 		============================================ -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
     <!-- Bootstrap CSS
 		============================================ -->
-        <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
     <!-- Bootstrap CSS
 		============================================ -->
     <link rel="stylesheet" href="../css/font-awesome.min.css">
@@ -116,19 +76,19 @@ if (isset($_POST["submit"])) {
     <div class="left-sidebar-pro">
         <nav id="sidebar" class="">
             <div class="sidebar-header">
-                <a href="index.html"><img class="main-logo" src="img/logo/logo.png" alt="" /></a>
-                <strong><img src="img/logo/logosn.png" alt="" /></strong>
+                <!-- <a href="index.html"><img class="main-logo" src="img/logo/logo.png" alt="" /></a> -->
+                <!-- <strong><img src="img/logo/logosn.png" alt="" /></strong> -->
             </div>
 			<div class="nalika-profile">
 				<div class="profile-dtl">
-					<a href="#"><img src="img/notification/4.jpg" alt="" /></a>
-					<h2>Lakian <span class="min-dtn">Das</span></h2>
+					
+					<h2>Shirley <span class="min-dtn">Yankyera</span></h2>
 				</div>
 				<div class="profile-social-dtl">
 					<ul class="dtl-social">
-						<li><a href="#"><i class="icon nalika-facebook"></i></a></li>
+						<!-- <li><a href="#"><i class="icon nalika-facebook"></i></a></li>
 						<li><a href="#"><i class="icon nalika-twitter"></i></a></li>
-						<li><a href="#"><i class="icon nalika-linkedin"></i></a></li>
+						<li><a href="#"><i class="icon nalika-linkedin"></i></a></li> -->
 					</ul>
 				</div>
 			</div>
@@ -141,25 +101,22 @@ if (isset($_POST["submit"])) {
 								   <span class="mini-click-non">Ecommerce</span>
 								</a>
                             <ul class="submenu-angle" aria-expanded="true">
-                            <li><a title="Dashboard v.1" href="dasboard.php"><span class="mini-sub-pro">Dashboard v.1</span></a></li>
+                            <li><a title="Dashboard v.1" href="dashboard.php"><span class="mini-sub-pro">Dashboard v.1</span></a></li>
                                 <!-- <li><a title="Dashboard v.2" href="index-1.html"><span class="mini-sub-pro">Dashboard v.2</span></a></li>
                                 <li><a title="Dashboard v.3" href="index-2.html"><span class="mini-sub-pro">Dashboard v.3</span></a></li> -->
                                 <li><a title="Product List" href="product-list.php"><span class="mini-sub-pro">Product List</span></a></li>
                                 <li><a title="Product List" href="orders.php"><span class="mini-sub-pro">Orders</span></a></li>
                                 <!-- <li><a title="Product Edit" href="product-edit.php"><span class="mini-sub-pro">Product Edit</span></a></li> -->
-                                <li><a title="Product Detail" href="product-detail.php"><span class="mini-sub-pro">Product Detail</span></a></li>
-                                <li><a title="Product Cart" href="product-cart.html"><span class="mini-sub-pro">Product Cart</span></a></li>
+                                <!-- <li><a title="Product Detail" href="product-detail.php"><span class="mini-sub-pro">Product Detail</span></a></li> -->
+                                <li><a title="Product Cart" href="product-cart.php"><span class="mini-sub-pro">Product Cart</span></a></li>
                                 <li><a title="Add Product" href="Add product.php"><span class="mini-sub-pro">Product add</span></a></li>
                                 <li><a title="Add Brand" href="brand.php"><span class="mini-sub-pro">Brand</span></a></li>
                                 <li><a title="Add Category" href="category.php"><span class="mini-sub-pro">Category</span></a></li>
-                                <!-- <li><a title="Analytics" href="analytics.html"><span class="mini-sub-pro">Analytics</span></a></li>
-                                <li><a title="Widgets" href="widgets.html"><span class="mini-sub-pro">Widgets</span></a></li> -->
-                            </ul>
                         </li>
-                       
-                       
-                       
-                       
+                        
+                        
+                        
+                        
                     </ul>
                 </nav>
             </div>
@@ -200,7 +157,7 @@ if (isset($_POST["submit"])) {
 											</div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                     <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
                                         <div class="header-right-info">
                                             <ul class="nav navbar-nav mai-top-nav header-right-menu">
                                                 <li class="nav-item dropdown">
@@ -222,7 +179,7 @@ if (isset($_POST["submit"])) {
                                                                     </div>
                                                                 </a>
                                                             </li>
-                                                            <li>
+                                                            <li> -->
                                                                 <a href="#">
                                                                     <div class="message-img">
                                                                         <img src="img/contact/4.jpg" alt="">
@@ -333,6 +290,7 @@ if (isset($_POST["submit"])) {
                                                     
                                                         <?php 
 								 if(isset($_SESSION['loggedin'])){
+                                    
 									echo "<li><a href='../actions/logout.php'><span class='icon nalika-unlocked author-log-ic'></span>Logout</a></li>";
 									
 								 }else{
@@ -340,18 +298,37 @@ if (isset($_POST["submit"])) {
 								 }
 								?>
                                                         </li>
+                                                <!-- <li class="nav-item">
+                                                    <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
+															<i class="icon nalika-user nalika-user-rounded header-riht-inf" aria-hidden="true"></i>
+															<span class="admin-name">Advanda Cro</span>
+															<i class="icon nalika-down-arrow nalika-angle-dw nalika-icon"></i>
+														</a>
+                                                    <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
+                                                        <li><a href="register.html"><span class="icon nalika-home author-log-ic"></span> Register</a>
+                                                        </li>
+                                                        <li><a href="#"><span class="icon nalika-user author-log-ic"></span> My Profile</a>
+                                                        </li>
+                                                        <li><a href="lock.html"><span class="icon nalika-diamond author-log-ic"></span> Lock</a>
+                                                        </li>
+                                                        <li><a href="#"><span class="icon nalika-settings author-log-ic"></span> Settings</a>
+                                                        </li>
+                                                        <li><a href="login.html"><span class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
+                                                        </li>
                                                     </ul>
-                                                </li>
+                                                </li> -->
+                                                
                                                 <li class="nav-item nav-setting-open"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="icon nalika-menu-task"></i></a>
+                                                
 
                                                     <div role="menu" class="admintab-wrap menu-setting-wrap menu-setting-wrap-bg dropdown-menu animated zoomIn">
                                                         <ul class="nav nav-tabs custon-set-tab">
-                                                            <li class="active"><a data-toggle="tab" href="#Notes">News</a>
+                                                            <!-- <li class="active"><a data-toggle="tab" href="#Notes">News</a>
                                                             </li>
                                                             <li><a data-toggle="tab" href="#Projects">Activity</a>
                                                             </li>
                                                             <li><a data-toggle="tab" href="#Settings">Settings</a>
-                                                            </li>
+                                                            </li> -->
                                                         </ul>
 
                                                         <div class="tab-content custom-bdr-nt">
@@ -743,24 +720,18 @@ if (isset($_POST["submit"])) {
                                         <li><a data-toggle="collapse" data-target="#Charts" href="#">Home <span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
                                             <ul class="collapse dropdown-header-top">
                                                 <li><a href="index.html">Dashboard v.1</a></li>
-                                                
+                                                <!-- <li><a href="index-1.html">Dashboard v.2</a></li>
+                                                <li><a href="index-3.html">Dashboard v.3</a></li> -->
                                                 <li><a href="product-list.html">Product List</a></li>
                                                 <li><a href="product-edit.html">Product Edit</a></li>
                                                 <li><a href="product-detail.html">Product Detail</a></li>
                                                 <li><a href="product-cart.html">Product Cart</a></li>
                                                 <li><a href="product-payment.html">Product Payment</a></li>
-                                                
+                                                <li><a href="analytics.html">Analytics</a></li>
+                                                <li><a href="widgets.html">Widgets</a></li>
                                             </ul>
                                         </li>
                                        
-                                      
-                                       
-                                        
-                                      
-                                       
-                                       
-                                       
-                                        </li>
                                     </ul>
                                 </nav>
                             </div>
@@ -773,7 +744,7 @@ if (isset($_POST["submit"])) {
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="breadcome-list">
+							<div class="breadcome-list">
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                         <div class="breadcomb-wp">
@@ -781,8 +752,8 @@ if (isset($_POST["submit"])) {
 												<i class="icon nalika-home"></i>
 											</div>
 											<div class="breadcomb-ctn">
-												<h2>Product Edit</h2>
-												<p>Welcome to Admin<span class="bread-ntd">Dashboard</span></p>
+												<h2>Order List</h2>
+												<p>Welcome to <span class="bread-ntd">Admin Dashboard</span></p>
 											</div>
 										</div>
                                     </div>
@@ -798,410 +769,115 @@ if (isset($_POST["submit"])) {
                 </div>
             </div>
         </div>
-         <!-- Single pro tab start-->
-         <div class="single-product-tab-area mg-b-30">
-            <!-- Single pro tab review Start-->
-            <div class="single-pro-review-area">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="review-tab-pro-inner">
-                                <ul id="myTab3" class="tab-review-design">
-                                    <li class="active"><a href="#description"><i class="icon nalika-edit" aria-hidden="true"></i> Product edit</a></li>
-                                    <li><a href="#reviews"><i class="icon nalika-picture" aria-hidden="true"></i> Pictures</a></li>
-                                  
-                                </ul>
-                                <div class="input-group mg-b-pro-edt">
-                                    <span class="input-group-addon"><i class="icon nalika-like" aria-hidden="true"></i></span>
-                                    <form method="POST" action="" style='padding-bottom: 10px;' enctype="multipart/form-data">
-                                    <input name="product_id" type="text" value="<?php echo $pid; ?>" hidden>
-                                    <input type="text"  class="form-control" placeholder="Category">
-                                    
-                                </div>
-                                <select name="category" id="category" class="form-control pro-edt-select form-control-primary">
-                                    
-                                <option value="opt1">Select a category</option>
-                                
-                               
-                                <?php
-                 
-
-                
-                
-                
-           
-                //  require_once("../controllers/product_controller.php");
- 
- 
-                 $data = get_categories();
-                 foreach ($data as $key => $value) {
- 
-                     $name = $value['cat_name'];
-                     $cat_id = $value['cat_id'];
- 
-                     echo "<option value= '$cat_id' >$name</option>";
-                 }
-                 ?>
- 
-                                    </select>
-                                    
-                                     <br>
-                                    <div class="input-group mg-b-pro-edt">
-                                        
-                                        <span class="input-group-addon"><i class="icon nalika-like" aria-hidden="true"></i></span>
-                                        <input type="text" name="brand" class="form-control" placeholder="Brand">
-                                        
-                                    </div>
-                                    <select name="brand" class="form-control pro-edt-select form-control-primary">
-                                    <option value="opt1">Select a brand </option>
-                                    <?php
-                 
-
-                
-                
-                
-           
-                //  require_once("../controllers/product_controller.php");
- 
- 
-                 $data = get_brands();
-                 foreach ($data as $key => $value) {
- 
-                     $name = $value['brand_name'];
-                     $brand_id = $value['brand_id'];
- 
-                     echo "<option value= '$brand_id' >$name</option>";
-                 }
-                 ?>
-                                
-                 
-
-                
-                
-                
-           
-           
- 
-                                    
-                    </select>
-                    <div class="form-outline mb-4">
-            <input type = 'text' name= 'product_id' value= "<?php echo $pid;// if(isset($_GET['brand_name'])){echo $brand_name;}  ?>"hidden>
-            <label class="form-label" for="form3Example3cg">Enter product name</label>
-
-            <input type="text" class="form-control" name='product_title' value="<?php echo $_GET['product_title'];// if(isset($_GET['brand_name'])){echo $brand_name;}  ?>"placeholder="Product Title">
-        </div>
-
-        <div class="form-outline mb-4">
-            <label class="form-label" for="form3Example3cg">Enter product price</label>
-            <input type="text" class="form-control" name='product_price' value="<?php echo $_GET['product_price'];// if(isset($_GET['brand_name'])){echo $brand_name;}  ?>"placeholder="Product Price">
-        </div>
-
-        <div class="form-outline mb-4">
-            <label class="form-label" for="form3Example3cg">Enter product description</label>
-            <input type="text" class="form-control" name='product_desc' value="<?php echo $_GET['product_desc'];// if(isset($_GET['brand_name'])){echo $brand_name;}  ?>"placeholder="Product Description">
-        </div>
-
-        <!-- <div class="form-outline mb-4">
-            <label class="form-label" for="form3Example3cg">Upload image</label>
-            <input type="file" id="form3Example3cg" class="form-control form-control-lg" name="pimage" />
-            
-        </div> -->
-
-        <div class="form-outline mb-4">
-            <label class="form-label" for="form3Example3cg">Enter product keyword</label>
-            <input type="text" class="form-control" name='product_keywords' value="<?php echo $_GET['product_keywords'];// if(isset($_GET['brand_name'])){echo $brand_name;}  ?>"placeholder="Product Name">
-        </div>
-
-        <div class="d-flex justify-content-center">
-            <button type="submit" name="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Update</button>
-        </div>
-                </form>
-                                    <div class="product-tab-list tab-pane fade" id="reviews">
-                                        <div class="row">
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                <div class="review-content-section">
-                                                    <div class="row">
-                                                        <div class="col-lg-4">
-                                                            <div class="pro-edt-img">
-                                                                <img src="img/new-product/5-small.jpg" alt="" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-8">
-                                                            <div class="row">
-                                                                <div class="col-lg-12">
-                                                                    <div class="product-edt-pix-wrap">
-                                                                        <div class="input-group">
-                                                                            <span class="input-group-addon">TT</span>
-                                                                            <input type="text" class="form-control" placeholder="Label Name">
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="col-lg-6">
-                                                                                <div class="form-radio">
-                                                                                    <form>
-                                                                                        <div class="radio radiofill">
-                                                                                            <label>
-																									<input type="radio" name="radio"><i class="helper"></i>Largest Image
-																								</label>
-                                                                                        </div>
-                                                                                        <div class="radio radiofill">
-                                                                                            <label>
-																									<input type="radio" name="radio"><i class="helper"></i>Medium Image
-																								</label>
-                                                                                        </div>
-                                                                                        <div class="radio radiofill">
-                                                                                            <label>
-																									<input type="radio" name="radio"><i class="helper"></i>Small Image
-																								</label>
-                                                                                        </div>
-                                                                                    </form>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-lg-6">
-                                                                                <div class="product-edt-remove">
-                                                                                    <button type="button" class="btn btn-ctl-bt waves-effect waves-light">Remove
-																							<i class="fa fa-times" aria-hidden="true"></i>
-																						</button>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-lg-4">
-                                                            <div class="pro-edt-img">
-                                                                <img src="img/new-product/6-small.jpg" alt="" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-8">
-                                                            <div class="row">
-                                                                <div class="col-lg-12">
-                                                                    <div class="product-edt-pix-wrap">
-                                                                        <div class="input-group">
-                                                                            <span class="input-group-addon">TT</span>
-                                                                            <input type="text" class="form-control" placeholder="Label Name">
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="col-lg-6">
-                                                                                <div class="form-radio">
-                                                                                    <form>
-                                                                                        <div class="radio radiofill">
-                                                                                            <label>
-																									<input type="radio" name="radio"><i class="helper"></i>Largest Image
-																								</label>
-                                                                                        </div>
-                                                                                        <div class="radio radiofill">
-                                                                                            <label>
-																									<input type="radio" name="radio"><i class="helper"></i>Medium Image
-																								</label>
-                                                                                        </div>
-                                                                                        <div class="radio radiofill">
-                                                                                            <label>
-																									<input type="radio" name="radio"><i class="helper"></i>Small Image
-																								</label>
-                                                                                        </div>
-                                                                                    </form>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-lg-6">
-                                                                                <div class="product-edt-remove">
-                                                                                    <button type="button" class="btn btn-ctl-bt waves-effect waves-light">Remove
-																							<i class="fa fa-times" aria-hidden="true"></i>
-																						</button>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-lg-4">
-                                                            <div class="pro-edt-img mg-b-0">
-                                                                <img src="img/new-product/7-small.jpg" alt="" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-8">
-                                                            <div class="row">
-                                                                <div class="col-lg-12">
-                                                                    <div class="product-edt-pix-wrap">
-                                                                        <div class="input-group">
-                                                                            <span class="input-group-addon">TT</span>
-                                                                            <input type="text" class="form-control" placeholder="Label Name">
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="col-lg-6">
-                                                                                <div class="form-radio">
-                                                                                    <form>
-                                                                                        <div class="radio radiofill">
-                                                                                            <label>
-																									<input type="radio" name="radio"><i class="helper"></i>Largest Image
-																								</label>
-                                                                                        </div>
-                                                                                        <div class="radio radiofill">
-                                                                                            <label>
-																									<input type="radio" name="radio"><i class="helper"></i>Medium Image
-																								</label>
-                                                                                        </div>
-                                                                                        <div class="radio radiofill">
-                                                                                            <label>
-																									<input type="radio" name="radio"><i class="helper"></i>Small Image
-																								</label>
-                                                                                        </div>
-                                                                                    </form>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-lg-6">
-                                                                                <div class="product-edt-remove">
-                                                                                    <button type="button" class="btn btn-ctl-bt waves-effect waves-light">Remove
-																							<i class="fa fa-times" aria-hidden="true"></i>
-																						</button>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-tab-list tab-pane fade" id="INFORMATION">
-                                        <div class="row">
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                <div class="review-content-section">
-                                                    <div class="card-block">
-                                                        <div class="text-muted f-w-400">
-                                                            <p>No reviews yet.</p>
-                                                        </div>
-                                                        <div class="m-t-10">
-                                                            <div class="txt-primary f-18 f-w-600">
-                                                                <p>Your Rating</p>
-                                                            </div>
-                                                            <div class="stars stars-example-css detail-stars">
-                                                                <div class="review-rating">
-                                                                    <fieldset class="rating">
-                                                                        <input type="radio" id="star5" name="rating" value="5">
-                                                                        <label class="full" for="star5"></label>
-                                                                        <input type="radio" id="star4half" name="rating" value="4 and a half">
-                                                                        <label class="half" for="star4half"></label>
-                                                                        <input type="radio" id="star4" name="rating" value="4">
-                                                                        <label class="full" for="star4"></label>
-                                                                        <input type="radio" id="star3half" name="rating" value="3 and a half">
-                                                                        <label class="half" for="star3half"></label>
-                                                                        <input type="radio" id="star3" name="rating" value="3">
-                                                                        <label class="full" for="star3"></label>
-                                                                        <input type="radio" id="star2half" name="rating" value="2 and a half">
-                                                                        <label class="half" for="star2half"></label>
-                                                                        <input type="radio" id="star2" name="rating" value="2">
-                                                                        <label class="full" for="star2"></label>
-                                                                        <input type="radio" id="star1half" name="rating" value="1 and a half">
-                                                                        <label class="half" for="star1half"></label>
-                                                                        <input type="radio" id="star1" name="rating" value="1">
-                                                                        <label class="full" for="star1"></label>
-                                                                        <input type="radio" id="starhalf" name="rating" value="half">
-                                                                        <label class="half" for="starhalf"></label>
-                                                                    </fieldset>
-                                                                </div>
-                                                                <div class="clear"></div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="input-group mg-b-15 mg-t-15">
-                                                            <span class="input-group-addon"><i class="icon nalika-user" aria-hidden="true"></i></span>
-                                                            <input type="text" class="form-control" placeholder="User Name">
-                                                        </div>
-                                                        <div class="input-group mg-b-15">
-                                                            <span class="input-group-addon"><i class="icon nalika-user" aria-hidden="true"></i></span>
-                                                            <input type="text" class="form-control" placeholder="Last Name">
-                                                        </div>
-                                                        <div class="input-group mg-b-15">
-                                                            <span class="input-group-addon"><i class="icon nalika-mail" aria-hidden="true"></i></span>
-                                                            <input type="text" class="form-control" placeholder="Email">
-                                                        </div>
-                                                        <div class="form-group review-pro-edt mg-b-0-pt">
-                                                            <button type="submit" class="btn btn-ctl-bt waves-effect waves-light">Submit
-																</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-copyright-area">
+        <div class="product-status mg-b-30">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-12">
-                        <div class="footer-copy-right">
-                            <p>Copyright © 2018 <a href="https://colorlib.com/wp/templates/">Colorlib</a> All rights reserved.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="product-status-wrap">
+                            <h4>Order List</h4>
+                            <div class="add-product">
+                                <a href="Add product.php">Orders</a>
+                            </div>
+                            <table>
+                                <tr>
+                                <th scope="col">Order</th>
+                                <th scope="col">Customer</th>
+                                <th scope="col">Invoice_number</th>
+                                <th scope="col">Order Date</th>
+                                <th scope="col">Order Status</th>
+                                <th scope="col">Inscription</th>
+                            
+                                    
+                                </tr>
 
+                                <?php
+          $order = get_orders_ctr();
+          foreach ($order  as $value) :
+
+          ?>
+
+          <?php
+          $oid = $value['order_id'];
+          $cid = $value['customer_id'];
+          ?>
+             <tr>
+            <td> <?php echo $value['order_id'];
+                           ?></td>
+            <td> <?php echo $value['customer_id'];
+                             ?></td>
+            <td> <?php echo $value['invoice_no']; ?></td>
+            <td> <?php echo $value['order_date']; ?></td>
+            <td> <?php echo $value['order_status']; ?></td>
+            <td> <?php echo $value['inscription']; ?></td>
+            </td>
+          </tr>
+
+          <?php
+          endforeach;
+          ?>
+                                <!-- <tr>
+                                    <td><img src="" alt="" /></td>
+                                    <td></td>
+                                    <td>
+                                        
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <button<a  href="product-edit.html"data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a> 
+                                        <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                    </td>
+                                </tr> -->
+                                
     <!-- jquery
 		============================================ -->
-    <script src="js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="../js/vendor/jquery-1.12.4.min.js"></script>
     <!-- bootstrap JS
 		============================================ -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
     <!-- wow JS
 		============================================ -->
-    <script src="js/wow.min.js"></script>
+    <script src="../js/wow.min.js"></script>
     <!-- price-slider JS
 		============================================ -->
-    <script src="js/jquery-price-slider.js"></script>
+    <script src="../js/jquery-price-slider.js"></script>
     <!-- meanmenu JS
 		============================================ -->
-    <script src="js/jquery.meanmenu.js"></script>
+    <script src="../js/jquery.meanmenu.js"></script>
     <!-- owl.carousel JS
 		============================================ -->
-    <script src="js/owl.carousel.min.js"></script>
+    <script src="../js/owl.carousel.min.js"></script>
     <!-- sticky JS
 		============================================ -->
-    <script src="js/jquery.sticky.js"></script>
+    <script src="../js/jquery.sticky.js"></script>
     <!-- scrollUp JS
 		============================================ -->
-    <script src="js/jquery.scrollUp.min.js"></script>
+    <script src="../js/jquery.scrollUp.min.js"></script>
     <!-- mCustomScrollbar JS
 		============================================ -->
-    <script src="js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="js/scrollbar/mCustomScrollbar-active.js"></script>
+    <script src="../js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../js/scrollbar/mCustomScrollbar-active.js"></script>
     <!-- metisMenu JS
 		============================================ -->
-    <script src="js/metisMenu/metisMenu.min.js"></script>
-    <script src="js/metisMenu/metisMenu-active.js"></script>
+    <script src="../js/metisMenu/metisMenu.min.js"></script>
+    <script src="../js/metisMenu/metisMenu-active.js"></script>
     <!-- morrisjs JS
 		============================================ -->
-    <script src="js/sparkline/jquery.sparkline.min.js"></script>
-    <script src="js/sparkline/jquery.charts-sparkline.js"></script>
+    <script src="../js/sparkline/jquery.sparkline.min.js"></script>
+    <script src="../js/sparkline/jquery.charts-sparkline.js"></script>
     <!-- calendar JS
 		============================================ -->
-    <script src="js/calendar/moment.min.js"></script>
-    <script src="js/calendar/fullcalendar.min.js"></script>
-    <script src="js/calendar/fullcalendar-active.js"></script>
-    <!-- tab JS
-		============================================ -->
-    <script src="js/tab.js"></script>
+    <script src="../js/calendar/moment.min.js"></script>
+    <script src="../js/calendar/fullcalendar.min.js"></script>
+    <script src="../js/calendar/fullcalendar-active.js"></script>
     <!-- plugins JS
 		============================================ -->
-    <script src="js/plugins.js"></script>
+    <script src="../js/plugins.js"></script>
     <!-- main JS
 		============================================ -->
-    <script src="js/main.js"></script>
+    <script src="./js/main.js"></script>
 </body>
 
 </html>

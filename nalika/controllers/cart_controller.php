@@ -3,14 +3,14 @@
 include_once dirname((__FILE__)) . "/../classes/cart_class.php";
 
 
-function add_cart_ctrl($p_id, $ip_add, $c_id)
+function add_cart_ctrl($p_id, $ip_add, $c_id, $insc)
 {
 
   //creating an instance
   $add_cart = new cart_class();
 
   // return method
-  return $add_cart->add_cart($p_id, $ip_add, $c_id);
+  return $add_cart->add_cart($p_id, $ip_add, $c_id, $insc);
 }
 
 function select_cart_ctrl($c_id)
@@ -83,6 +83,11 @@ function update_cart_qty_ctrl($pid, $cid, $qty)
 {
   $update_cart = new cart_class();
   return $update_cart->update_cart_qty($pid, $cid, $qty);
+}
+
+function update_cart_insc($pid, $cid, $insc){
+  $update_cart = new cart_class();
+  return $update_cart->update_cart_insc($pid, $cid, $insc);
 }
 
 function update_more_cart_qty_ctrl($pid, $cid)
@@ -164,6 +169,31 @@ function insert_order_details_ctrl($oid, $pid, $qty, $inscription)
   $insert_orderdetails = new cart_class();
 
   return $insert_orderdetails->insert_order_details($oid, $pid, $qty, $inscription);
+}
+
+function get_orders_ctr(){
+  $select_orders = new cart_class;
+
+  return $select_orders-> get_orders();
+
+}
+
+function get_orderdetail_ctr(){
+  $select_orders = new cart_class;
+
+  return $select_orders-> get_orderdetail();
+
+}
+
+//selecting one product
+function get_one_orderdetail($order_id){
+
+// creating instance
+$select_details = new cart_class();
+
+// return method
+$data = $select_details -> get_one_orderdetail($order_id);
+  return $data;
 }
 
 function delete_from_cart($cid, $pid)

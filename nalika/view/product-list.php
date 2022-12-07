@@ -105,6 +105,8 @@ session_start()
                                 <!-- <li><a title="Dashboard v.2" href="index-1.html"><span class="mini-sub-pro">Dashboard v.2</span></a></li>
                                 <li><a title="Dashboard v.3" href="index-2.html"><span class="mini-sub-pro">Dashboard v.3</span></a></li> -->
                                 <li><a title="Product List" href="product-list.php"><span class="mini-sub-pro">Product List</span></a></li>
+                                <li><a title="Product List" href="orders.php"><span class="mini-sub-pro">Orders</span></a></li>
+                                
                                 <!-- <li><a title="Product Edit" href="product-edit.php"><span class="mini-sub-pro">Product Edit</span></a></li> -->
                                 <!-- <li><a title="Product Detail" href="product-detail.php"><span class="mini-sub-pro">Product Detail</span></a></li> -->
                                 <li><a title="Product Cart" href="product-cart.php"><span class="mini-sub-pro">Product Cart</span></a></li>

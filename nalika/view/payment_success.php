@@ -89,7 +89,7 @@
             </div>
             <div class="content">
                <h1>Payment Success!</h1>
-               <p>Your Payment was Succesfull. Enjoy ubora tihs year. Have a good day</p>
+               <p>Your Payment was Succesfull. Enjoy your gift package. Have a good day</p>
                <a href="shop.php">Back to Shop</a>
             </div>
             

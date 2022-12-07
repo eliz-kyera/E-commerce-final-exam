@@ -9,9 +9,9 @@ class cart_class extends db_connection
 
 	//--insert--//
 
-	function add_cart($p_id, $ip_add, $c_id){
+	function add_cart($p_id, $ip_add, $c_id, $insc){
 
-		$sql = "INSERT INTO `cart`(`p_id`, `ip_add`, `c_id`, `qty`) VALUES ('$p_id', '$ip_add', '$c_id', '1')";
+		$sql = "INSERT INTO `cart`(`p_id`, `ip_add`, `c_id`, `qty`, `inscription`) VALUES ('$p_id', '$ip_add', '$c_id', '1','$insc')";
 	
 		return $this -> query($sql);
 	}
@@ -63,6 +63,11 @@ function update_cart_qty($pid, $cid, $qty){
 	return $this -> query($sql);
 }
 
+function update_cart_insc($pid, $cid, $insc){
+	$sql = "UPDATE cart SET inscription = '$insc' WHERE p_id = '$pid' AND c_id = '$cid'";
+	return $this -> query($sql);
+}
+
 function reduce_cart_qty($pid, $cid){
 	$sql = "UPDATE cart SET qty = qty-1 WHERE p_id = '$pid' AND c_id = '$cid'";
 	return $this -> query($sql);
@@ -86,7 +91,7 @@ function update_textbox($pid, $cid, $txtbox){
 }
 
 function every_cart_item($cid){
-	$sql = "SELECT products.product_price * cart.qty, cart.qty, products.product_id, products.product_title, products.product_desc, products.product_image, products.product_price 
+	$sql = "SELECT products.product_price * cart.qty, inscription, cart.qty, products.product_id, products.product_title, products.product_desc, products.product_image, products.product_price 
 	FROM cart INNER JOIN products ON cart.p_id = products.product_id WHERE cart.c_id = '$cid'";
 	return $this -> fetch($sql);
 }
@@ -142,6 +147,26 @@ function insert_order_details($oid, $pid, $qty, $inscription){
 
 	return $this -> query($sql);
 }
+
+function get_orders(){
+	$sql = "SELECT * from `orders`";
+	
+	return $this -> fetch($sql);
+}
+
+function get_orderdetail(){
+	$sql =" SELECT * FROM `orderdetails`";
+
+	return $this -> fetch($sql);
+}
+
+function get_one_orderdetail($order_id){
+	$sql =" SELECT * FROM `orderdetails` WHERE order_id = '$order_id'";
+
+	return $this -> fetchOne($sql);
+}
+
+
 
 function delete_from_cart($cid,$pid){
 	$sql = "DELETE FROM cart WHERE c_id = '$cid' and  p_id ='$pid'";

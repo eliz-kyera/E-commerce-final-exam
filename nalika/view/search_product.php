@@ -1,9 +1,13 @@
 <?php
-require("../controllers/product_controller.php");
+require_once("../controllers/product_controller.php");
+
+
+// $product_one =  search_products_ctrl($_GET['search']);
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,16 +40,17 @@ require("../controllers/product_controller.php");
 	<link rel="stylesheet" href="../../assets/css/responsive.css">
 
 </head>
+
 <body>
-	
+
 	<!--PreLoader-->
-    <div class="loader">
+	<!-- <div class="loader">
         <div class="loader-inner">
             <div class="circle"></div>
         </div>
-    </div>
-    <!--PreLoader Ends-->
-	
+    </div> -->
+	<!--PreLoader Ends-->
+
 	<!-- header -->
 	<div class="top-header-area" id="sticker">
 		<div class="container">
@@ -64,28 +69,27 @@ require("../controllers/product_controller.php");
 						<nav class="main-menu">
 							<ul>
 								<li class="current-list-item"><a href="../../index.php">Home</a>
-									
+
 								</li>
 								<li><a href="about.php">About</a></li>
-								
+
 								<li><a href="news.php">News</a>
-									
+
 								</li>
 								<li><a href="contact.php">Contact</a></li>
 								<li><a href="shop.php">Shop</a>
 									<ul class="sub-menu">
 										<li><a href="shop.html">Shop</a></li>
 										<li><a href="checkout.php">Check Out</a></li>
-										<li><a href="single-product.php">Single Product</a></li>
+										<!-- <li><a href="single-product.php">Single Product</a></li> -->
 										<li><a href="cart.php">Cart</a></li>
 									</ul>
 								</li>
-								<?php 
-								if(isset($_SESSION['loggedin'])){
-									echo "<li><a href='./nalika/actions/logout.php'>Logout</a></li>";
-									
-								}else{
-									echo '<li><a href="./nalika/view/login.php">Login</a></li>';
+								<?php
+								if (isset($_SESSION['loggedin'])) {
+									echo "<li><a href='../actions/logout.php'>Logout</a></li>";
+								} else {
+									echo '<li><a href="login.php">Login</a></li>';
 								}
 								?>
 								<li>
@@ -107,35 +111,67 @@ require("../controllers/product_controller.php");
 	<!-- end header -->
 
 	<!-- search area -->
-	<div class="search-area">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<span class="close-btn"><i class="fas fa-window-close"></i></span>
-					<div class="search-bar">
-						<div class="search-bar-tablecell">
-							<h3>Search For:</h3>
-							<input type="text" placeholder="Keywords">
-							<button type="submit">Search <i class="fas fa-search"></i></button>
+	<form method="POST" action="../actions/searchprocess.php">
+		<div class="search-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<span class="close-btn"><i class="fas fa-window-close"></i></span>
+						<div class="search-bar">
+							<div class="search-bar-tablecell">
+								<h3>Search For:</h3>
+								<form method="GET" action="search_product.php">
+									<input type="text" name="search" id="search" placeholder="search by title">
+									<button type="submit" name="searchbtn">Search <i class="fas fa-search"></i></button>
+								</form>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<!-- end search arewa -->
-	
-	<!-- breadcrumb-section -->
-	<div class="breadcrumb-section">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 offset-lg-2 text-center">
-					<div class="breadcrumb-text">
-						<p>Fresh and Organic</p>
-						<h1>Shop</h1>
+		<!-- end search arewa -->
+
+		<!-- breadcrumb-section -->
+		<div class="breadcrumb-section breadcrumb-bg">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-8 offset-lg-2 text-center">
+						<div class="breadcrumb-text">
+							<p>Explore our different variety of products</p>
+							<h1>Shop</h1>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<!-- end breadcrumb section -->
+		<!-- end breadcrumb section -->
+
+		<div class="row">
+		<?php
+		$search = $_GET['search'];
+
+
+		$p_search = search_products_ctrl($search);
+
+		foreach ($p_search as $value) {
+			$product_id = $value['product_id'];
+			$product_title = $value['product_title'];
+
+
+		?>
+			<div class="col-lg-4 col-md-6 text-center ">
+				<div class="single-product-item">
+					<div class="product-image">
+						<a href="single-product.php?id=<?php echo $value['product_id']; ?>"><img src="<?php echo $value['product_image'] ?>" alt=""><i class="tf-ion-ios-eye"></i></a>
+					</div>
+					<h3><?php echo $value['product_title'] ?></h3>
+					<p class="product"><?php echo $value['product_desc'] ?></p>
+					<p class="product-price">GH₵ <?php echo $value['product_price'] ?></p>
+					<a href="inscription.php?product_id=<?php echo $value['product_id'] ?>&product_name=<?php echo $value['product_title'] ?> " class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+
+				</div>
+			</div>
+
+
+		<?php } ?>

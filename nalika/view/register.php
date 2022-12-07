@@ -14,28 +14,39 @@
     <h2>Sign Up</h2>
         <label>
           <span> Full Name</span>
-          <input type="text" name="fullname" required>
+          <input type="text" name="fullname" id="fullname" onkeyup="validateFullName(this)" required />
         </label>
+        <p id="1" style="color: rgb(199,90,90);"></p>
         <label>
           <span>Email</span>
-          <input type="email" name="email">
+          <input type="email" name="email" id="email" onkeyup="validateEmail(this)" required />
         </label>
-        <label>
-          <span>Password</span>
-          <input type="password" name="password" required>
-        </label>
+        <p id="2" style="color: rgb(199,90,90);"></p>
+        
         <label>
           <span>Country</span>
-          <input type="text" name="country">
+          <input type="text" name="country" id="country" required onkeyup="validateCountry(this)" required />
         </label>
-         <label>
+        <p id="4" style="color: rgb(199,90,90);"></p>
+         <!-- <label>
           <span>City</span>
-          <input type="text" name="city" >
-        </label> 
+          <input type="text" name="city" id="city">
+        </label>  -->
+        <p id="5" style="color: rgb(199,90,90);"></p>
         <label>
           <span>Contact</span>
-          <input type="tel" name="contact">
+          <input type="text" name="contact" id="contact" required onkeyup="validatePhone(this)" required />
         </label> 
+        <p id="6" style="color: rgb(199,90,90);"></p>
+        <label>
+          <span>Password</span>
+          <input type="password" name="password" id="pass" required >
+        </label>
+        <label>
+          <span>Confirm Password</span>
+          <input type="password" name="password" id="pass1" required onkeyup="validatePassword()" required />
+        </label>
+       
         <button class="button-33" name= "submit" role="button">Sign Up</button>
     
 </form>
@@ -118,5 +129,6 @@
       </div> -->
 
  <!-- <script type="text/javascript" src="../../assets/js/script.js"></script>  -->
+ <script src= "../js/register.js"></script>
 </body>
 </html>

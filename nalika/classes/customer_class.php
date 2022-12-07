@@ -14,9 +14,9 @@ class customerclass extends db_connection
 {
 	//--INSERT--//
 
-	function add_customer($name, $email, $pass, $country, $city, $contact)
+	function add_customer($name, $email, $pass, $country, $contact)
 	{
-		$sql = "INSERT INTO `customer`(`customer_name`, `customer_email`, `customer_pass`, `customer_country`, `customer_city`, `customer_contact`, `user_role`) VALUES ('$name','$email','$pass','$country','$city', '$contact', '2')";
+		$sql = "INSERT INTO `customer`(`customer_name`, `customer_email`, `customer_pass`, `customer_country`, `customer_contact`, `user_role`) VALUES ('$name','$email','$pass','$country', '$contact', '2')";
 
 		return $this->query($sql);
 	}
