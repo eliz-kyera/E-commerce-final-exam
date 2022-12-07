@@ -271,7 +271,7 @@ session_start();
 							function payWithPaystack() {
 								event.preventDefault();
 								let handler = PaystackPop.setup({
-									key: 'pk_test_172deac8df704ae4731462096e7c6a6b5865eeba', // Replace with your public key
+									key: 'pk_live_bd5356607a881f3a0d6843b75d3172b74b9675cd', // Replace with your public key
 									email: '<?php echo $cus_email; ?>',
 									amount: <?php echo  $amt * 100 ?>, //amount.value * 100,
 									callback: function(response) {
